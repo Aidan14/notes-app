@@ -1,0 +1,35 @@
+### Default Route
+GET http://localhost:4000
+
+### Get All Notes
+GET http://localhost:4000/notes
+
+### Get One Note
+GET http://localhost:4000/notes/62eea9231eb4a2839509df77
+
+### Create One Note
+POST http://localhost:4000/notes
+Content-Type: application/json
+
+{
+    "content": "This is a random note",
+    "category": "Information"
+}
+
+### Update One Note
+PATCH http://localhost:4000/notes/62eea9231eb4a2839509df77
+Content-Type: application/json
+
+{
+    "content": "These are some random notes",
+    "category": "Information"
+}
+
+### Delete One Note
+DELETE http://localhost:4000/notes/62eea858ae5cf82625ff8451
+
+### Searching Any
+GET http://localhost:4000/notes/search/another
+
+### 404 Error
+GET http://localhost:4000/aagvg

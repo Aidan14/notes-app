@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--font--lighter);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+*::selection {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+:root {
+    --background--darker: rgb(34, 36, 41);
+    --background--darker2: rgb(34, 36, 41);
+    --background--dark: rgb(49, 53, 63);
+    --font--lighter: white;
+    --font--light: rgb(225, 228, 233);
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+#root {
+    background-color: var(--background--darker);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.app-title {
+    margin: 50px 0;
+    text-align: center;
+
+}
+
+.app-title__span {
+    color: lightskyblue;
+    font-size: clamp(25px, 8vw, 35px);
+}
+
+/* Table Bar */
+
+.table-bar {
+    margin-bottom: 50px;
+    width: 80%;
+    display: flex;
+}
+
+.button--add {
+    background-color: transparent;
+    color: greenyellow;
+    border: 2px solid greenyellow;
+    padding: 10px 25px;
+    font-weight: 500;
+    margin-right: 25px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.button--add:hover {
+    box-shadow: inset greenyellow 100px 0 0 1px;
+    color: var(--background--dark);
+}
+
+.search-bar {
+    display: flex;
+    flex-grow: 1;
+    border: 1px solid white;
+}
+
+.search-bar__input {
+    border: 0;
+    padding: 10px;
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border-right: 0;
+    flex-grow: 1;
+}
+
+.search-bar__button--search {
+    background-color: transparent;
+    display: grid;
+    place-items: center;
+    width: 55px;
+    cursor: pointer;
+    border: none;
+    border-left: 1px solid white;
+    transition: .2s linear;
+}
+
+.search-bar__button--search:hover {
+    font-size: 21px;
+    background-color: var(--background--dark);
+}
+
+.search-bar__button--search > svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+/* Table */
+
+.table-container {
+    width: 80%;
+    overflow-x: auto;
+    border: 1px solid white;
+}
+
+.note-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: var(--background--dark);
+}
+
+.note-table__th {
+    font-weight: 400;
+}
+
+.note-table__th, .note-table__td {
+    padding: 15px 20px;
+}
+
+td {
+    border: none;
+}
+
+.note-table__td {
+    font-weight: 300;
+    text-align: center;
+    border: 0;
+}
+
+.td__input {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+    font-weight: 300;
+    outline: none;
+    resize: none;
+    color: var(--font--light);
+}
+
+.button--delete {
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .table-bar {
+        flex-direction: column;
+    }
+
+    .button--add {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .button--add:hover {
+        box-shadow: inset greenyellow 400px 0 0 1px;
+    }
+}

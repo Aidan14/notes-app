@@ -1,0 +1,42 @@
+//load('./server/config/notesDB.mongodb')
+
+use('notes-app')
+db.dropDatabase()
+
+db.createCollection('notes')
+db.notes.createIndex( { content: 1},
+                      { collation: { locale: 'en', strength: 2 } } )
+
+//Test Data
+
+db.notes.insertMany([
+    {
+        "content": "Hello, this is a sample note",
+        "category": "To Do"
+    },
+    {
+        "content": "Hello, this is another sample note",
+        "category": "Homework"
+    },
+    
+])
+
+db.notes.insert(
+    {
+        "content": "Another one. Don't you get tired?",
+        "category": "Remember"
+    }
+)
+
+db.getCollectionNames()
+db.notes.find()
+db.notes.find().projection({_id: 0})
+
+
+var search = "another"
+var re = new RegExp(search, "i")
+
+db.notes.find({"content": re})
+db.notes.find( { content: re } ).collation( { locale: 'en', strength: 2 } )
+
+db.notes.find( { $or: [ {"content": /home/}, {"category": /home/} ] } );
